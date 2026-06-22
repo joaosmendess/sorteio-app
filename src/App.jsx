@@ -119,17 +119,21 @@ export default function App() {
     const list = flat();
     const n = list.length;
     if (n < 2) return;
+
     const k = Math.floor(Math.random() * n);
     const seg = 360 / n;
-    const jitter = (Math.random() - 0.5) * seg * 0.7;
-    const desired = (((360 - ((k + 0.5) * seg) - jitter) % 360) + 360) % 360;
-    const cur = ((rot % 360) + 360) % 360;
-    const delta = 360 * (6 + Math.floor(Math.random() * 3)) + (((desired - cur) % 360) + 360) % 360;
-    const newRot = rot + delta;
-    setRot(newRot);
+
+    // Calcular a rotação final para que o item k fique no topo
+    // Item k está em grau (k + 0.5) * seg
+    // Para colocá-lo no topo (0°), rotacionamos: 360*voltas - (k + 0.5) * seg
+    const voltas = 6 + Math.floor(Math.random() * 3);
+    const targetRotation = 360 * voltas - (k + 0.5) * seg;
+
+    setRot(targetRotation);
     setSpinning(true);
     setResultShown(false);
     setResult(null);
+
     clearTimeout(spinTimeoutRef.current);
     spinTimeoutRef.current = setTimeout(() => {
       setSpinning(false);
