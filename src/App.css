@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #EAE0D2;
+  -webkit-font-smoothing: antialiased;
+}
+
+::placeholder {
+  color: #BBB1A1;
+}
+
+input {
+  font-family: 'Schibsted Grotesk', sans-serif;
+}
+
+@keyframes sheetUp {
+  from {
+    transform: translate(-50%, 18px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.86);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-7px) rotate(8deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 7px 20px -7px rgba(60, 45, 30, 0.55);
+  }
+  50% {
+    box-shadow: 0 7px 24px -6px rgba(60, 45, 30, 0.5), 0 0 0 9px rgba(224, 84, 46, 0.1);
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(160px) rotate(340deg);
+    opacity: 0;
+  }
+}
+
+@keyframes tick {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0);
+  }
+  55% {
+    transform: translateX(-50%) rotate(-11deg);
+  }
+}
+
+.app-wrapper {
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  background: #FBF2E7;
+  font-family: 'Schibsted Grotesk', sans-serif;
+  color: #221E1B;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  .app-wrapper {
+    max-width: 430px;
+  }
+}
+
+/* Tablet e Desktop */
+@media (min-width: 640px) {
+  .app-wrapper {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+}
+
